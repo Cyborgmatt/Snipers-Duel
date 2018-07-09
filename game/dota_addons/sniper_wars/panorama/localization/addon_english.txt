@@ -1,0 +1,52 @@
+"addon"
+{
+	"PointsToWin"									"+{d:points_to_win} more"
+	"PointsToWin_CloseToVictory"					"+{d:points_to_win} more"
+	"PointsToWin_VeryCloseToVictory"				"+{d:points_to_win} more!"
+	"PointsToWin_Victory"							"Victory!"
+
+	"Chest"											"ITEM"
+	"ItemWillSpawn"									"IS ABOUT TO BE DELIVERED!"
+	"ItemHasSpawned"								"IS ON ITS WAY!"
+
+	"OverthrowHeroPickup"							"{s:player_name}"
+	"OverthrowTextPickup"							"HAS PICKED UP"
+	"OverthrowItemPickup"							"{s:item_id}!"
+
+	"RecentScore"									"+{d:score}"
+
+	"Unassigned"      								"Unassigned Team"
+	"Spectator"       								"Spectator Team"
+	"Neutrals"        								"Neutral Team"
+	"NoTeam"          								"No Team"
+
+	"DOTA_GoodGuys"   								"Teal Tiger"
+	"DOTA_BadGuys"    								"Yellow Monkey"
+	"DOTA_Custom1"    								"Pink Dragon"
+	"DOTA_Custom2"    								"Orange Dog"
+	"DOTA_Custom3"    								"Blue Rooster"
+	"DOTA_Custom4"    								"Green Ram"
+	"DOTA_Custom5"    								"Brown Rat"
+	"DOTA_Custom6"    								"Cyan Boar"
+	"DOTA_Custom7"    								"Olive Snake"
+	"DOTA_Custom8"    								"Purple Horse"
+
+	"Remaining"										"REMAINING"
+
+	"Overtime"										"OVERTIME!"
+	"OvertimeInstructions"							"SCORE TO WIN"
+	
+	"KillMessageLeader"								"Has Killed The Leader!"
+	"KillMessageFive"								"Is Only <font color='#c50d23'>5 Kills</font> Away From Victory!"
+	"KillMessageOne"								"Is Only <font color='#c50d23'>1 Kill</font> Away From Victory!"
+
+	"DOTA_Tooltip_Ability_item_sniper_potato"							"Potato"
+	"DOTA_Tooltip_Ability_item_sniper_grappling"						"Grappling Hook"
+	"DOTA_Tooltip_Ability_item_sniper_barricade"						"Barricade"
+	"DOTA_Tooltip_Ability_item_sniper_boots_force"						"Force Boots (Forward)"
+	"DOTA_Tooltip_Ability_item_sniper_boots_force_backwards"			"Force Boots (Backwards)"
+	"DOTA_Tooltip_Ability_item_sniper_boots_healing"					"Healing Boots"
+	"DOTA_Tooltip_Ability_item_sniper_boots_speed"						"Speed Boots"
+	"DOTA_Tooltip_Ability_item_sniper_grenade"							"Grenade"
+}
+

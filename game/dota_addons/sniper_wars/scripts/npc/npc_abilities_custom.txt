@@ -1,0 +1,689 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	//=================================================================================================================
+	// Ability: Treasure Courier
+	//=================================================================================================================
+	"dota_ability_treasure_courier"
+	{
+		"BaseClass"          			    "ability_datadriven"
+		"AbilityName"           			"dota_ability_health_granter"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"modifier_dota_ability_treasure_courier"
+			{
+				"IsHidden"				"1"
+				"Passive"				"1"
+				
+				"Aura"					""
+				"Aura_Radius"			"600"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				"Aura_ApplyToCaster"	"0"
+
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Sniper: Assassinate
+	//=================================================================================================================
+	"sniper_assassinate_wars"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"sniper_assassinate"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"1700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"1.0"
+
+		"AbilityManaCost"				"0"
+		"AbilityDamage"					"10000"
+
+		"precache"
+		{
+			"particle" 	"particles/sniper_bullet.vpcf"
+			"particle" 	"particles/items2_fx/hand_of_midas.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1000 1200 1400 1600"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/weapons.lua"
+				"Function"				"Rifle_Shoot"
+				"Target"				"POINT"
+				"MoveSpeed"				"%speed"
+				"FixedDistance"			"%range"
+				"StartRadius"			"%start_radius"
+				"EndRadius"				"%end_radius"
+				"Damage" 				"%AbilityDamage"
+				"VisionRadius"			"%vision_radius"
+			}
+
+			"FireSound"
+			{
+				"EffectName" 	"Hero_Sniper.Rifle_Attack"
+				"Target" 		"CASTER"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Sniper: Machine Gun
+	//=================================================================================================================
+	"sniper_machinegun_wars"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"1300 1500 1600 1700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"10.0 8.0 6.0 4.0"
+
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle" 	"particles/sniper_bullet_mg.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1300 1500 1600 1700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"750 950 1150 1350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 400 500 600"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_sniper_machinegun"
+				"Target"			"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_sniper_machinegun"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"duration"			"%duration"
+
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/weapons.lua"
+						"Function"				"Machinegun_Shoot"
+						"Target"				"POINT"
+						"MoveSpeed"				"%speed"
+						"FixedDistance"			"%range"
+						"StartRadius"			"%start_radius"
+						"EndRadius"				"%end_radius"
+						"Damage" 				"%damage"
+						"VisionRadius"			"%vision_radius"
+					}
+
+					"FireSound"
+					{
+						"EffectName" 	"Hero_Sniper.Machinegun_Attack"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Sniper: Shotgun
+	//=================================================================================================================
+	"sniper_shotgun_wars"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"sniper_shotgun_wars"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"20.0 15.0 12.5 10.0"
+
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/sniper_wars_sounds.vsndevts"
+			"particle" 	"particles/sniper_bullet_mg.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"750 950 1150 1350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 400 500 600"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/weapons.lua"
+				"Function"				"Shotgun_Shoot"
+				"Target"				"POINT"
+				"MoveSpeed"				"%speed"
+				"FixedDistance"			"%range"
+				"StartRadius"			"%start_radius"
+				"EndRadius"				"%end_radius"
+				"Damage" 				"%damage"
+				"VisionRadius"			"%vision_radius"
+			}
+
+			"FireSound"
+			{
+				"EffectName" 	"Hero_Sniper.Shotgun_Attack"
+				"Target" 		"CASTER"
+			}
+
+			"DelayedAction"
+			{
+				"Delay"     "0.6"
+				"Action"    
+				{
+					"FireSound"
+					{
+						"EffectName" 	"Hero_Sniper.Shotgun_Reload"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Sniper: Blink
+	//=================================================================================================================
+	"sniper_blink_wars"
+	{
+		"BaseClass"             		"antimage_blink"
+		"AbilityTextureName"			"antimage_blink"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0"
+
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_antimage/antimage_blink_end.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blink_range"			"1000 1075 1150 1150"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_blink_range"		"200"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"Blink"
+			{
+				"Target" 		"POINT"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Antimage.Blink_out"
+				"Target"		"CASTER"
+			}
+
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_antimage/antimage_blink_end.vpcf"
+				"Target"		"CASTER"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Sniper: Sprint
+	//=================================================================================================================
+	"sniper_sprint_wars"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"windrunner_windrun"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCastAnimation"			"ACT_DOTA_RUN"
+
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"15.0 12.5 10.0 7.50"
+
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_speed"				"30 35 40 45"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Slardar.Sprint"
+				"Target"		"CASTER"
+			}
+
+	        "ApplyModifier"
+	        {
+	            "Target" "CASTER"
+	            "ModifierName" "modifier_sniper_sprint"
+	        }
+		}
+
+	    "Modifiers"
+	    {
+	    	"modifier_sniper_sprint"
+	    	{
+	    		"IsBuff" "1"
+	    		"Duration" "%duration"
+	    		"EffectName"	"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+		    	"EffectAttachType"	"follow_origin"
+
+	    		"Properties"
+		    	{
+		    		"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_speed"
+		    	}
+	    	}
+	    }
+	}
+
+	//=================================================================================================================
+	// Sniper: Divine Shield
+	//=================================================================================================================
+	"sniper_shield_wars"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"omniknight_repel"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 15 10"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0"
+			}
+		}
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Omniknight.Repel"
+				"Target"			"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_cast.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"modifier_repel_datadriven"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_repel_datadriven"
+			{
+				"IsBuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"%duration"
+				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"sniper_jump_wars"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"sniper_jump_wars"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel" 						"1"
+
+		"precache"
+		{
+			"particle"	"particles/econ/courier/courier_hwytty/courier_hwytty_ambient.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1400"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"distance"		"900"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"			"800"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"2.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/jump.lua"
+				"Function"				"Jump"
+				"Target"				"CASTER"
+				"Distance"				"%distance"
+				"Speed"					"%speed"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Sniper.Jump"
+				"Target"			"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_sniper_jump"
+				"Target" 		"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_sniper_jump"
+			{
+				"IsBuff"			"1"
+
+				"Duration"		"%duration"
+		
+				"EffectName"		"particles/econ/courier/courier_hwytty/courier_hwytty_ambient.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Grappling Hook
+	//=================================================================================================================
+	"sniper_grappling_wars"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"						"shredder_timber_chain"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"shredder_timber_chain"
+		"MaxLevel"						"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1000"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"chain_radius"		"90"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_radius"		"225"
+			}
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1600"
+			}
+			"05"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100"
+			}
+		}
+	}
+}

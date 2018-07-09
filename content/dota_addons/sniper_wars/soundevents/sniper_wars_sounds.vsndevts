@@ -1,0 +1,352 @@
+"Hero_Sniper.Rifle_Attack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/sniper/sniper_assassinate.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.750000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Hero_Sniper.Machinegun_Attack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/sniper/shrapnel_fire.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "1.250000"
+					}
+				}
+			}
+		}
+	}
+}
+
+
+"Hero_Sniper.Shotgun_Attack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/sniper/mkg_attack.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "1.250000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Hero_Sniper.Shotgun_Reload"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/sniper/sniper_assassinate_load.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.500000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Hero_Sniper.HoHoHaHa"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/sniper/snip_ability_shrapnel_03.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"	"1.550000"
+					}
+					"pitch"
+					{
+						"value" "1.400000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Hero_Sniper.Jump"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/zuus/taunt_jump.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"1.500000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Item_Sniper.Wood"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/ui/inventory/wood_drop_01.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"0.750000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Item_Sniper.WoodBreak"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/ambient/tut_fencesmash_small.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.500000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Item_Sniper.GrenadeThrow"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/batrider/batrider_sticky_napalm_impact_01.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.750000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Item_Sniper.GrenadeFuse"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/gyrocopter/homing_missile.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.750000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Item_Sniper.GrenadeExplosion"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/techies/suicide.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.750000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Item_Sniper.HealingBoots"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/items/clarity_potion.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value" "0.550000"
+					}
+				}
+			}
+		}
+	}
+}
