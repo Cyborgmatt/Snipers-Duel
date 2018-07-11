@@ -1,4 +1,11 @@
+PROJECTILES_VERSION = "1.00"
+
 PROJECTILES_THINK = 0.01
+
+PROJECTILES_NOTHING = 0
+PROJECTILES_DESTROY = 1
+PROJECTILES_BOUNCE = 2
+PROJECTILES_FOLLOW = 3
 
 if Projectiles == nil then
   print ( '[PROJECTILES] creating Projectiles' )
@@ -12,7 +19,8 @@ function Projectiles:start()
   if self.thinkEnt == nil then
     self.timers = {}
     
-    self.thinkEnt = Entities:CreateByClassname("info_target")
+    -- = Entities:CreateByClassname("info_target")
+    self.thinkEnt = SpawnEntityFromTableSynchronous("info_target", {targetname="projectiles_lua_thinker"})
     --self.treeCutter = CreateUnitByName('npc_dummy_unit', Vector(0,0,0) , true, nil, nil, DOTA_TEAM_NOTEAM)
     --self.treeCutter:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
     --self.treeCutter:AddAbility("tree_cutter")
@@ -40,24 +48,22 @@ function Projectiles:Think()
     for k,v in pairs(Projectiles.timers) do
       local bUseGameTime = true
       -- Check if the timer has finished
-      if bUseGameTime and GameRules:GetGameTime() > v.endTime then
-        -- Remove from timers list
-        Projectiles.timers[k] = nil
         
-        -- Run the callback
-        local status, nextCall = pcall(v.callback, Projectiles, v)
+      -- Run the callback
+      local status, nextCall = pcall(v.callback, Projectiles, v)
 
-        -- Make sure it worked
-        if status then
-          -- Check if it needs to loop
-          if nextCall then
-            -- Change it's end time
-            v.endTime = nextCall
-            Projectiles.timers[k] = v
-          end
+      -- Make sure it worked
+      if status then
+        -- Check if it needs to loop
+        if nextCall then
+          -- Change it's end time
+          v.endTime = nextCall
         else
-          print('[PROJECTILES] Timer error:' .. nextCall)
+          Projectiles.timers[k] = nil
         end
+      else
+        Projectiles.timers[k] = nil
+        print('[PROJECTILES] Timer error:' .. nextCall)
       end
     end  
   end
@@ -97,11 +103,6 @@ function Projectiles:CalcNormal(pos, unit, scale)
   return Vector(zl - zr, zd - zu, 2*scale):Normalized()
 end
 
-PROJECTILES_NOTHING = 0
-PROJECTILES_DESTROY = 1
-PROJECTILES_BOUNCE = 2
-PROJECTILES_FOLLOW = 3
-
 function Projectiles:CreateProjectile(projectile)
   -- set defaults
   projectile.vVelocity = projectile.vVelocity or Vector(0,0,0)
@@ -120,6 +121,7 @@ function Projectiles:CreateProjectile(projectile)
   projectile.fRehitDelay = projectile.fRehitDelay or 1
   projectile.TreeBehavior = projectile.TreeBehavior or PROJECTILES_DESTROY
   if projectile.bCutTrees == nil then projectile.bCutTrees = false end
+  if projectile.bDestroyImmediate == nil then projectile.bDestroyImmediate = true end
   projectile.WallBehavior = projectile.WallBehavior or PROJECTILES_DESTROY
   projectile.GroundBehavior = projectile.GroundBehavior or PROJECTILES_DESTROY
   projectile.bGroundLock = projectile.bGroundLock or false
@@ -142,9 +144,13 @@ function Projectiles:CreateProjectile(projectile)
   if projectile.bFlyingVision == nil then projectile.bFlyingVision = true end
   projectile.iVisionRadius = projectile.iVisionRadius or 200
   projectile.iVisionTeamNumber = projectile.iVisionTeamNumber or projectile.Source:GetTeam()
-  projectile.fVisionLingerDuration = projectile.fVisionLingerDuration or 1/30
-  if projectile.fVisionLingerDuration < 1/30 then
-    projectile.fVisionLingerDuration = 1/30
+  projectile.fVisionTickTime = projectile.fVisionTickTime or .1
+  if projectile.fVisionTickTime <= 0 then
+    projectile.fVisionTickTime = .1
+  end
+  projectile.fVisionLingerDuration = projectile.fVisionLingerDuration or projectile.fVisionTickTime
+  if projectile.fVisionLingerDuration < projectile.fVisionTickTime then
+    projectile.fVisionLingerDuration = projectile.fVisionTickTime
   end
 
 
@@ -174,6 +180,9 @@ function Projectiles:CreateProjectile(projectile)
   projectile.spawnTime = GameRules:GetGameTime()
   projectile.changeTime = projectile.spawnTime
   projectile.distanceTraveled = 0
+
+  projectile.visionTick = math.ceil(projectile.fVisionTickTime * 30)
+  projectile.currentFrame = projectile.visionTick
 
   if projectile.fRadiusStep then
     projectile.radiusStep = projectile.fRadiusStep / 30
@@ -232,6 +241,15 @@ function Projectiles:CreateProjectile(projectile)
     --ParticleManager:ReleaseParticleIndex(projectile.id)
   end]]
 
+  function projectile:GetCreationTime()
+    return projectile.spawnTime
+  end
+  function projectile:GetDistanceTraveled()
+    return projectile.distanceTraveled
+  end
+  function projectile:GetPosition()
+    return projectile.pos
+  end
   function projectile:GetVelocity()
     return projectile.vel * 30
   end
@@ -243,7 +261,7 @@ function Projectiles:CreateProjectile(projectile)
       --print ('setting CP' .. projectile.iVelocityCP .. 'to ' .. tostring(newVel))
 
       if projectile.bRecreateOnChange then
-        ParticleManager:DestroyParticle(projectile.id, true)
+        ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
         projectile.id = ParticleManager:CreateParticle(projectile.EffectName, PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleAlwaysSimulate(projectile.id)
         for k,v in pairs(projectile.ControlPoints) do
@@ -267,13 +285,13 @@ function Projectiles:CreateProjectile(projectile)
         if projectile.ControlPointForwards[1] == nil and projectile.ControlPointOrientations[1] == nil then
           ParticleManager:SetParticleControlForward(projectile.id, projectile.iPositionCP, projectile.vel:Normalized())
         end
-
-        ParticleManager:SetParticleControl(projectile.id, projectile.iVelocityCP, newVel)
       end
+      
+      ParticleManager:SetParticleControl(projectile.id, projectile.iVelocityCP, newVel)
     end
   end
   function projectile:Destroy()
-    ParticleManager:DestroyParticle(projectile.id, false)
+    ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
     Projectiles:RemoveTimer(projectile.ProjectileTimerName)
   end
 
@@ -292,7 +310,7 @@ function Projectiles:CreateProjectile(projectile)
 
       -- checks
       if curTime > projectile.spawnTime + projectile.fExpireTime or projectile.distanceTraveled > projectile.fDistance then
-        ParticleManager:DestroyParticle(projectile.id, false)
+        ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
         if projectile.OnFinish then
           local status, out = pcall(projectile.OnFinish, projectile, pos)
           if not status then
@@ -320,7 +338,7 @@ function Projectiles:CreateProjectile(projectile)
       -- frame and sub-frame collision checks
       local subpos = pos
       local velLength = vel:Length()
-      local tot = math.ceil(velLength / 32) -- lookahead number
+      local tot = math.max(1, math.ceil(velLength / 32)) -- lookahead number
       local div = 1 / tot
 
       -- unit detection prep
@@ -394,7 +412,7 @@ function Projectiles:CreateProjectile(projectile)
                 end
 
                 if projectile.UnitBehavior == PROJECTILES_DESTROY then
-                  ParticleManager:DestroyParticle(projectile.id, false)
+                  ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
                   if projectile.OnFinish then
                     local status, out = pcall(projectile.OnFinish, projectile, subpos)
                     if not status then
@@ -421,7 +439,7 @@ function Projectiles:CreateProjectile(projectile)
         --print(tostring(ground.z) .. ' -- ' .. tostring(pos.z))
         local groundConnect = ground.z > pos.z -- ground
         if navConnect then
-          if projectile.bCutTrees or projbecilt.TreeBehavior ~= PROJECTILES_NOTHING then
+          if projectile.bCutTrees or projectile.TreeBehavior ~= PROJECTILES_NOTHING then
             local ents = GridNav:GetAllTreesAroundPoint(subpos, projectile.radius, projectile.bTreeFullCollision)
             --print('tree hit')
             --local vec = Vector(GridNav:GridPosToWorldCenterX(GridNav:WorldToGridPosX(subpos.x)), GridNav:GridPosToWorldCenterY(GridNav:WorldToGridPosY(subpos.y)), ground.z - projectile.fGroundOffset)
@@ -444,7 +462,7 @@ function Projectiles:CreateProjectile(projectile)
                 end
 
                 if projectile.TreeBehavior == PROJECTILES_DESTROY then
-                  ParticleManager:DestroyParticle(projectile.id, false)
+                  ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
                   if projectile.OnFinish then
                     local status, out = pcall(projectile.OnFinish, projectile, subpos)
                     if not status then
@@ -470,7 +488,7 @@ function Projectiles:CreateProjectile(projectile)
             end
 
             if projectile.WallBehavior == PROJECTILES_DESTROY then
-              ParticleManager:DestroyParticle(projectile.id, false)
+              ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
               if projectile.OnFinish then
                 local status, out = pcall(projectile.OnFinish, projectile, subpos)
                 if not status then
@@ -494,15 +512,17 @@ function Projectiles:CreateProjectile(projectile)
         if projectile.GroundBehavior ~= PROJECTILES_NOTHING and groundConnect then
             --print('groundConnect')
             if projectile.GroundBehavior == PROJECTILES_DESTROY then
-              ParticleManager:DestroyParticle(projectile.id, false)
+              ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
               local status, action = pcall(projectile.OnGroundHit, projectile, ground)
               if not status then
                 print('[PROJECTILES] Projectile OnGroundHit Failure!: ' .. action)
               end
 
-              local status, out = pcall(projectile.OnFinish, projectile, subpos)
-              if not status then
-                print('[PROJECTILES] Projectile OnFinish Failure!: ' .. out)
+              if projectile.OnFinish then
+                local status, out = pcall(projectile.OnFinish, projectile, subpos)
+                if not status then
+                  print('[PROJECTILES] Projectile OnFinish Failure!: ' .. out)
+                end
               end
               return
             elseif projectile.GroundBehavior == PROJECTILES_BOUNCE and projectile.changes > 0 and curTime >= projectile.changeTime then
@@ -540,7 +560,7 @@ function Projectiles:CreateProjectile(projectile)
         subpos = pos + vel * (div * index)
 
         if projectile.distanceTraveled + (subpos-pos):Length() > projectile.fDistance then
-          ParticleManager:DestroyParticle(projectile.id, false)
+          ParticleManager:DestroyParticle(projectile.id, projectile.bDestroyImmediate)
           if projectile.OnFinish then
             local status, out = pcall(projectile.OnFinish, projectile, subpos)
             if not status then
@@ -556,7 +576,12 @@ function Projectiles:CreateProjectile(projectile)
       end
 
       if projectile.bProvidesVision then
-        AddFOWViewer(projectile.iVisionTeamNumber, projectile.pos, projectile.iVisionRadius, projectile.fVisionLingerDuration, not projectile.bFlyingVision)
+        if projectile.currentFrame == projectile.visionTick then
+          AddFOWViewer(projectile.iVisionTeamNumber, projectile.pos, projectile.iVisionRadius, projectile.fVisionLingerDuration, not projectile.bFlyingVision)
+          projectile.currentFrame = 0
+        else
+          projectile.currentFrame = projectile.currentFrame + 1
+        end
       end
 
       projectile.radius = radius + projectile.radiusStep
@@ -572,4 +597,4 @@ function Projectiles:CreateProjectile(projectile)
   return projectile
 end
 
-Projectiles:start()
+if not Projectiles.timers then Projectiles:start() end

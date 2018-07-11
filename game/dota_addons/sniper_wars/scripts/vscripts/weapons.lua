@@ -193,7 +193,7 @@ end
 
 function Force_Boots( keys )
     local caster = keys.caster
-    caster:AddNewModifier(caster, nil, 'modifier_item_forcestaff_active', {push_length = keys.PushLength})
+    caster:AddNewModifier(caster, nil, 'modifier_item_forcestaff_active', {push_length = 800})
     EmitSoundOn('DOTA_Item.ForceStaff.Activate', caster)
 end
 
