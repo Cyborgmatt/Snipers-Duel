@@ -170,6 +170,7 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFixedRespawnTime( 5.0 )
 	GameRules:GetGameModeEntity():SetStashPurchasingDisabled( false )
 	GameRules:GetGameModeEntity():SetCameraDistanceOverride( 1250.0 )
+	GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_sniper")
 
 	-- Hooks
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap( CSniperWarsGameMode, 'OnNPCSpawned' ), self )
