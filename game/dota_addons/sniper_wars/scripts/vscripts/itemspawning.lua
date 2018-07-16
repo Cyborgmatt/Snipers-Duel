@@ -23,21 +23,34 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 	{
 		"item_sniper_grenade",
 		"item_sniper_potato",
-		"item_boots"
+		"item_sniper_barricade",
+		"item_creed_of_omniscience",
+		"item_bear_cloak",
+		"item_pelt_of_the_old_wolf",
+		"item_longclaws_amulet",
+		"item_bogduggs_lucky_femur"
+		
 	}
 	local tier2 = 
 	{
 		"item_sniper_grenade",
+		"item_sniper_potato",
 		"item_sniper_barricade",
-		"item_sniper_boots_speed",
-		"item_sniper_boots_healing"
+		"item_bogduggs_baldric",
+		"item_craggy_coat",
+		"item_ambient_sorcery",
+		"item_guardian_shell"
 	}
 	local tier3 = 
 	{
 		"item_sniper_grenade",
 		"item_sniper_grappling",
-		"item_sniper_boots_force",
-		"item_sniper_boots_force_backwards"
+		"item_sniper_potato",
+		"item_sniper_barricade",
+		"item_gravel_foot",
+		"item_slippers_of_the_abyss",
+		"item_precious_egg"
+		
 	}
 
 	local t1 = PickRandomShuffle( tier1, self.tier1ItemBucket )
