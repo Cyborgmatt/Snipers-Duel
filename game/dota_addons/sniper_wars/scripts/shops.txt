@@ -11,7 +11,6 @@
 
 	"attributes"
 	{
-		"item"		"item_sniper_grenade"
 	}
 
 	"weapons_armor"
@@ -25,7 +24,7 @@
 			
 	"misc"
 	{
-		"item"		"item_sniper_potato"
+		"item"		"item_sniper_grenade"
 		"item"		"item_sniper_grappling"
 		"item"		"item_sniper_barricade"
 	}	

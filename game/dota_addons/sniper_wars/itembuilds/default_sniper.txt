@@ -1,0 +1,32 @@
+"itembuilds/default_generic.txt"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_sniper"
+	"Title"			"Recommended items for Sniper"
+	
+	"Items"
+	{		
+		"BASIC ITEMS"
+		{
+			"item"		"item_boots"
+			"item"		"item_flask"
+			"item"		"item_ward_observer"
+			"item"		"item_ward_sentry"
+		}
+			
+		"DAS BOOT"
+		{
+			"item"		"item_sniper_boots_force"
+			"item"		"item_sniper_boots_force_backwards"
+			"item"		"item_sniper_boots_speed"
+			"item"		"item_sniper_boots_healing"
+		}
+		
+		"MISC"
+		{	
+			"item"		"item_sniper_grappling"
+			"item"		"item_sniper_barricade"
+			"item"		"item_sniper_grenade"
+		}
+	}
+}

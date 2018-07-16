@@ -2,12 +2,23 @@
 {
   "Version"   "1"
   
+  // ====== ALLOWED ITEMS START ======
   
-  // -----------------------------------------------------------
-  // - UNCOMMENT ANY ITEM YOU DON'T WANT TO APPEAR IN THE SHOP -
-  // -----------------------------------------------------------
+  //"item_flask"
+  //"item_tango"
+  //"item_ward_observer"
+  //"item_ward_sentry"
+  //"item_tango_single"
+  //"item_quelling_blade"
+  //"item_boots"
   
- "item_blink"
+  // ====== ALLOWED ITEMS END ======
+  
+  "item_sniper_potato"
+   	{
+		"ItemPurchasable" "0"
+	}
+  "item_blink"
 	{
 		"ItemPurchasable" "0"
 	}
@@ -46,10 +57,6 @@
 	"item_quarterstaff"
 	{
 		"ItemPurchasable" "0"
-	}
-	"item_quelling_blade"
-	{
-		"ItemPurchasable" "1"
 	}
 	"item_ring_of_protection"
 	{
@@ -123,10 +130,6 @@
 	{
 		"ItemPurchasable" "0"
 	}
-	"item_boots"
-	{
-		"ItemPurchasable" "1"
-	}
 	"item_gem"
 	{
 		"ItemPurchasable" "0"
@@ -163,10 +166,6 @@
 	{
 		"ItemPurchasable" "0"
 	}
-	"item_flask"
-	{
-		"ItemPurchasable" "1"
-	}
 	"item_dust"
 	{
 		"ItemPurchasable" "0"
@@ -174,22 +173,6 @@
 	"item_bottle"
 	{
 		"ItemPurchasable" "0"
-	}
-	"item_ward_observer"
-	{
-		"ItemPurchasable" "1"
-	}
-	"item_ward_sentry"
-	{
-		"ItemPurchasable" "1"
-	}
-	"item_tango"
-	{
-		"ItemPurchasable" "1"
-	}
-	"item_tango_single"
-	{
-		"ItemPurchasable" "1"
 	}
 	"item_courier"
 	{
@@ -209,7 +192,7 @@
 	}
 	"item_recipe_phase_boots"
 	{
-		"ItemPurchasable" "1"
+		"ItemPurchasable" "0"
 	}
 	"item_phase_boots"
 	{
@@ -856,6 +839,270 @@
 		"ItemPurchasable" "0"
 	}
 	"item_shadow_amulet"
+	{
+		"ItemPurchasable" "0"
+	}
+  "item_halloween_candy_corn"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_mystery_hook"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_mystery_arrow"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_mystery_missile"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_mystery_toss"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_mystery_vacuum"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_halloween_rapier"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_greevil_whistle"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_greevil_whistle_toggle"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_present"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_stocking"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_skates"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_cake"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_cookie"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_coco"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_ham"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_kringle"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_mushroom"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_greevil_treat"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_greevil_garbage"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_winter_greevil_chewy"
+	{
+		"ItemPurchasable" "0"
+	}
+  "item_recipe_moon_shard"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_moon_shard"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_enchanted_mango"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_travel_boots_2"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_travel_boots_2"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_lotus_orb"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_lotus_orb"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_crimson_guard"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_crimson_guard"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_silver_edge"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_silver_edge"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_octarine_core"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_octarine_core"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_solar_crest"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_solar_crest"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_guardian_greaves"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_guardian_greaves"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_glimmer_cape"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_glimmer_cape"
+	{
+		"ItemPurchasable" "0"
+	}
+ 	"item_dragon_lance"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_dragon_lance"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_blight_stone"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_echo_sabre"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_echo_sabre"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_infused_raindrop"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_tome_of_knowledge"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_hurricane_pike"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_hurricane_pike"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_bloodthorn"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_bloodthorn"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_faerie_fire"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_iron_talon"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_iron_talon"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_aether_lens"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_aether_lens"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_kaya"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_kaya"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_aeon_disk"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_aeon_disk"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_meteor_hammer"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_meteor_hammer"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_spirit_vessel"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_spirit_vessel"
+	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_nullifier"
+	{
+		"ItemPurchasable" "0"
+	}	
+	"item_nullifier"
 	{
 		"ItemPurchasable" "0"
 	}
