@@ -197,8 +197,8 @@ function Throw_Grenade( args )
         local target_location = target:GetAbsOrigin()
 
         local projectile = {
-          EffectName = "particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf",
-          vSpawnOrigin = caster:GetAbsOrigin(),
+          EffectName = "particles/units/heroes/hero_dark_willow/dark_willow_bramble_projectile.vpcf",
+		  vSpawnOrigin = caster:GetAbsOrigin(),
           --vSpawnOrigin = {unit=caster, attach="attach_attack1", offset=Vector(0,0,0)},
           fDistance = args.FixedDistance,
           fStartRadius = args.StartRadius,
@@ -224,7 +224,7 @@ function Throw_Grenade( args )
           OnUnitHit = function(self, unit)
           end,
           OnFinish = function(self, pos)
-                local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf", PATTACH_ABSORIGIN, target)
+                local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_willow/dark_willow_bramble_projectile.vpcf", PATTACH_ABSORIGIN, target)
                 ParticleManager:SetParticleControl(particle, 0, pos)
                 EmitSoundOn('Item_Sniper.GrenadeFuse', target)
                 -- Timer to kill particle
