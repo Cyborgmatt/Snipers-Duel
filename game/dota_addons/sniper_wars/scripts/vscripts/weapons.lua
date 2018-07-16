@@ -191,12 +191,6 @@ function Create_Barrier( keys )
     CreateUnitByName( "npc_sniper_barricade", point, false, caster, caster, caster:GetTeam() )
 end
 
-function Force_Boots( keys )
-    local caster = keys.caster
-    caster:AddNewModifier(caster, nil, 'modifier_item_forcestaff_active', {push_length = 800})
-    EmitSoundOn('DOTA_Item.ForceStaff.Activate', caster)
-end
-
 function Throw_Grenade( args )
         local caster = args.caster
         local target = args.target

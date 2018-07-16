@@ -195,15 +195,15 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Snipers Force Boots
+	// Recipe: Snipers Force Boots Forwards
 	//=================================================================================================================
 	"item_recipe_sniper_boots_force"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1104"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_recipe_arcane_boots"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -221,36 +221,28 @@
 	}
 
 	//=================================================================================================================
-	// Snipers Force Boots
+	// Snipers Force Boots Forwards
 	//=================================================================================================================
 	"item_sniper_boots_force"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1105"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-
-		"BaseClass"						"item_datadriven"
+		"ID"							"1105"															
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass"             		"item_lua"
+		"ScriptFile"					"items/item_force_boots.lua"
 		"AbilityTextureName"			"item_sniper_boots_force"
-		// Casting
-		"AbilityCastRange"      		 "0"
-		"AbilityCastPoint"     			 "0.0"
-
-		// Time
+		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"       		 "10"
-
-		// Cost
-		//-----------------------------------------------------------------------------------------------------
-		"AbilityManaCost"       		 "0"
+		"AbilityCooldown"				"10.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemSellable"					"1"
-		"ItemKillable"					"1"
-		
-		// Special	
+		"ItemShopTags"					""
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -258,37 +250,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"	"80"
-			}
+			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"push_length"			"800"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"scripts/vscripts/weapons.lua"
-				"Function"				"Force_Boots"
-				"Target"				"CASTER"
-				"PushLength"			"%push_length"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_sniper_boots_force"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_NONE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-				}
 			}
 		}
 	}
@@ -301,8 +267,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1106"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_recipe_arcane_boots"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -326,30 +292,22 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1112"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-
-		"BaseClass"						"item_datadriven"
+		"ID"							"1107"															
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass"             		"item_lua"
 		"AbilityTextureName"			"item_sniper_boots_force_backwards"
-		// Casting
-		"AbilityCastRange"      		 "0"
-		"AbilityCastPoint"     			 "0.0"
-
-		// Time
+		"ScriptFile"					"items/item_force_boots_backwards.lua"
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"       		 "10"
-
-		// Cost
-		//-----------------------------------------------------------------------------------------------------
-		"AbilityManaCost"       		 "0"
+		"AbilityCooldown"				"10.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemSellable"					"1"
-		"ItemKillable"					"1"
-		
-		// Special	
+		"ItemCost"						"730"
+		"ItemShopTags"					""
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -357,37 +315,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"	"80"
-			}
+			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"push_length"			"-800"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"scripts/vscripts/weapons.lua"
-				"Function"				"Force_Boots"
-				"Target"				"CASTER"
-				"PushLength"			"%push_length"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_sniper_boots_force"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_NONE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-				}
 			}
 		}
 	}
@@ -425,7 +357,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1107"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1109"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
 		"BaseClass"						"item_datadriven"
@@ -532,7 +464,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1109"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1110"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_recipe_arcane_boots"
 		
@@ -558,7 +490,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1110"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1111"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
 		"BaseClass"						"item_datadriven"
@@ -665,7 +597,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1111"
+		"ID"							"1112"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
 		"BaseClass"						"item_datadriven"
