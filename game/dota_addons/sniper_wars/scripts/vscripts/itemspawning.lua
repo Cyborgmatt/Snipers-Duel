@@ -144,8 +144,8 @@ function CSniperWarsGameMode:SpawnItem()
     --print ("Spawning Treasure")
     targetSpawnLocation = self.itemSpawnLocation
     treasureCourier:SetInitialGoalEntity(targetSpawnLocation)
-    local particleTreasure = ParticleManager:CreateParticle( "particles/items_fx/black_king_bar_avatar.vpcf", PATTACH_ABSORIGIN, treasureCourier )
-	ParticleManager:SetParticleControlEnt( particleTreasure, PATTACH_ABSORIGIN, treasureCourier, PATTACH_ABSORIGIN, "attach_origin", treasureCourier:GetAbsOrigin(), true )
+    local particleTreasure = ParticleManager:CreateParticle( "particles/items_fx/black_king_bar_avatar.vpcf", PATTACH_ABSORIGIN_FOLLOW, treasureCourier )
+	ParticleManager:SetParticleControlEnt( particleTreasure, PATTACH_ABSORIGIN_FOLLOW, treasureCourier, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", treasureCourier:GetAbsOrigin(), true )
 	treasureCourier:Attribute_SetIntValue( "particleID", particleTreasure )
 end
 
