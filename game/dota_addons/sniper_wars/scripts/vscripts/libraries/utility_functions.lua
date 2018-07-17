@@ -100,8 +100,3 @@ function CountdownTimer()
         CustomGameEventManager:Send_ServerToAllClients( "time_remaining", broadcast_gametimer )
     end
 end
-
-function SetTimer( cmdName, time )
-    print( "Set the timer to: " .. time )
-    nCOUNTDOWNTIMER = time
-end

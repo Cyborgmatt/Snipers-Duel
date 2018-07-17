@@ -62,9 +62,9 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 	-- pick the item we're giving them
 	if GetTeamHeroKills( leader ) <= 5 then
 		spawnedItem = t1
-	elseif GetTeamHeroKills( leader ) <= 15 then
+	elseif GetTeamHeroKills( leader ) <= 10 then
 		spawnedItem = t2
-	elseif GetTeamHeroKills( leader ) <= 20 then
+	elseif GetTeamHeroKills( leader ) <= 15 then
 		spawnedItem = t3
 	end
 

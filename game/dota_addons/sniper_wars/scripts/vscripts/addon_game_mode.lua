@@ -331,8 +331,8 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 	end
 
 	if nNewState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		print( "OnGameRulesStateChange: Game In Progress" )
-		self.countdownEnabled = true
+		print( "[SniperWars] is In Progress." )
+		self.countdownEnabled = false
 		CustomGameEventManager:Send_ServerToAllClients( "show_timer", {} )
 		DoEntFire( "center_experience_ring_particles", "Start", "0", 0, self, self  )
 	end
