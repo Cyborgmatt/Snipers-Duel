@@ -157,7 +157,7 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:SetHeroSelectionTime( 20.0 )
 	GameRules:SetTreeRegrowTime( 10.0 )
 	-- Gamemode Rules
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 ) 
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath( false )
@@ -180,8 +180,6 @@ function CSniperWarsGameMode:InitGameMode()
 	ListenToGameEvent('dota_npc_goal_reached', Dynamic_Wrap( CSniperWarsGameMode, "OnNpcGoalReached" ), self )
 
 	Convars:RegisterCommand( "sniper_wars_force_item_drop", function(...) self:ForceSpawnItem() end, "Force an item drop.", FCVAR_CHEAT )
-
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 ) 
 end
 
 --------------------------------------------------------------------------------
@@ -332,7 +330,7 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 
 	if nNewState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		print( "[SniperWars] is In Progress." )
-		self.countdownEnabled = false
+		self.countdownEnabled = true
 		CustomGameEventManager:Send_ServerToAllClients( "show_timer", {} )
 		DoEntFire( "center_experience_ring_particles", "Start", "0", 0, self, self  )
 	end
