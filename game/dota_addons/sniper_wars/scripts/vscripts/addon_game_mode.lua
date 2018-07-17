@@ -30,6 +30,7 @@ function Precache( context )
     PrecacheResource( "particle", "particles/sniper_grenade_explosion.vpcf", context )
     PrecacheResource( "particle", "particles/items2_fx/tranquil_boots_healing.vpcf", context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts", context )	
 end
 
 -- Create the game mode when we activate

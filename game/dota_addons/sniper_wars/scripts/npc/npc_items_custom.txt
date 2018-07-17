@@ -736,10 +736,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
+		"ItemCost"						"2500"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"1"
@@ -782,11 +782,10 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"2500"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -841,11 +840,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"2500"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -902,11 +900,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"2500"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -964,11 +961,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"2500"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1030,11 +1026,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"5000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1091,11 +1086,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"5000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1167,11 +1161,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"5000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1233,11 +1226,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"5000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1289,11 +1281,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"10000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1356,11 +1347,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"10000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
@@ -1432,11 +1422,10 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
-		"ItemQuality"					""
+		"ItemCost"						"10000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemStackable"					"0"
-		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"

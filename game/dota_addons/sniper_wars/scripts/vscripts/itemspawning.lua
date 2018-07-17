@@ -28,7 +28,7 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bear_cloak",
 		"item_pelt_of_the_old_wolf",
 		"item_longclaws_amulet",
-		"item_bogduggs_lucky_femur"
+		"item_bogduggs_lucky_femur",
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
 		"item_ambient_sorcery",
@@ -43,7 +43,7 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bear_cloak",
 		"item_pelt_of_the_old_wolf",
 		"item_longclaws_amulet",
-		"item_bogduggs_lucky_femur"
+		"item_bogduggs_lucky_femur",
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
 		"item_ambient_sorcery",
@@ -58,15 +58,14 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bear_cloak",
 		"item_pelt_of_the_old_wolf",
 		"item_longclaws_amulet",
-		"item_bogduggs_lucky_femur"
+		"item_bogduggs_lucky_femur",
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
 		"item_ambient_sorcery",
-		"item_guardian_shell"
+		"item_guardian_shell",
 		"item_gravel_foot",
 		"item_slippers_of_the_abyss",
 		"item_precious_egg"
-		
 	}
 
 	local t1 = PickRandomShuffle( tier1, self.tier1ItemBucket )

@@ -10,7 +10,7 @@ end
 ------------------------------------------------------------------------------
 
 function modifier_item_slippers_of_the_abyss_sprint:GetEffectName()
-	return "particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
+	return "particles/econ/events/ti8/ti8_hero_effect.vpcf"
 end
 
 ------------------------------------------------------------------------------

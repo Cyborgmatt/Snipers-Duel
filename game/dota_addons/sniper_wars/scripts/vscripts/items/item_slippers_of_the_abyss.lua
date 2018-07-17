@@ -20,10 +20,8 @@ end
 function item_slippers_of_the_abyss:OnSpellStart()
 	if IsServer() then
 		self.sprint_duration = self:GetSpecialValueFor( "sprint_duration" )
-
 		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_item_slippers_of_the_abyss_sprint", { duration = self.sprint_duration } )
-
-		 EmitSoundOn ("DOTA_Item.ForceStaff.Activate",self:GetCaster ())
+		 EmitSoundOn ("Hero_Slardar.Sprint",self:GetCaster ())
 	end
 end
 

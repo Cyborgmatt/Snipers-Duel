@@ -11,23 +11,35 @@
 
 	"attributes"
 	{
-	}
-
-	"weapons_armor"
-	{
 		"item"		"item_boots"
 		"item"		"item_sniper_boots_speed"
 		"item"		"item_sniper_boots_healing"
 		"item"		"item_sniper_boots_force"
 		"item"		"item_sniper_boots_force_backwards"
 	}
-			
-	"misc"
+
+	"weapons_armor"
 	{
 		"item"		"item_sniper_grenade"
 		"item"		"item_sniper_grappling"
 		"item"		"item_sniper_barricade"
 		"item"		"item_quelling_blade"
+	}
+			
+	"misc"
+	{
+		"item"		"item_creed_of_omniscience"
+		"item"		"item_bear_cloak"
+		"item"		"item_pelt_of_the_old_wolf"
+		"item"		"item_longclaws_amulet"
+		"item"		"item_bogduggs_lucky_femur"
+		"item"		"item_bogduggs_baldric"
+		"item"		"item_craggy_coat"
+		"item"		"item_ambient_sorcery"
+		"item"		"item_guardian_shell"
+		"item"		"item_gravel_foot"
+		"item"		"item_slippers_of_the_abyss"
+		"item"		"item_precious_egg"
 	}	
 	
 	// Level 1 - Green Recipes
