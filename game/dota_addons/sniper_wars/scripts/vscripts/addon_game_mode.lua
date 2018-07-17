@@ -110,7 +110,6 @@ function CSniperWarsGameMode:InitGameMode()
 	self.LAST_KILL = 1
 
 	self:GatherAndRegisterValidTeams()
-
 	GameRules:GetGameModeEntity().CSniperWarsGameMode = self
 
 	-- Custom XP
@@ -154,7 +153,7 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetCustomGameEndDelay( 0 )
 	GameRules:SetCustomVictoryMessageDuration( 10 )
-	GameRules:SetPreGameTime( 10 )
+	GameRules:SetPreGameTime( 0 )
 	GameRules:SetHeroSelectionTime( 20.0 )
 	GameRules:SetTreeRegrowTime( 10.0 )
 	-- Gamemode Rules
@@ -260,14 +259,12 @@ end
 function CSniperWarsGameMode:OnTeamKillCredit( event )
 --	print( "OnKillCredit" )
 --	DeepPrint( event )
-
 	local nKillerID = event.killer_userid
 	local nTeamID = event.teamnumber
 	local nTeamKills = event.herokills
 	local nKillsRemaining = self.TEAM_KILLS_TO_WIN - nTeamKills
 	local KillerName = PlayerResource:GetPlayerName(nKillerID)
-	local KillerMessage = "<font color='" .. PLAYER_COLORS[nKillerID] .. "'>" .. KillerName .. "</font>"
-	
+
 	local broadcast_kill_event =
 	{
 		killer_id = event.killer_userid,
@@ -292,11 +289,9 @@ function CSniperWarsGameMode:OnTeamKillCredit( event )
 	end
 
 	if nKillsRemaining == self.CLOSE_TO_VICTORY_THRESHOLD then
-		local KillMessageFive = " Is Only <font color='#c50d23'>5 Kills</font> Away From Victory!"
-		Notifications:TopToAll(KillerMessage .. KillMessageFive, 3.0)
+		Notifications:TopToAll({text="<font color='" .. PLAYER_COLORS[nKillerID] .. "'>" .. KillerName .. "</font>  Is Only <font color='#c50d23'>5 Kills</font> Away From Victory!", duration= 3.0})
 	elseif nKillsRemaining == self.LAST_KILL then
-		local KillMessageOne = " Is Only <font color='#c50d23'>1 Kill</font> Away From Victory!"
-		Notifications:TopToAll(KillerMessage .. KillMessageOne, 3.0)
+		Notifications:TopToAll({text="<font color='" .. PLAYER_COLORS[nKillerID] .. "'>" .. KillerName .. "</font>  Is Only <font color='#c50d23'>1 Kill</font> Away From Victory!", duration= 3.0})
 	end
 
 	CustomGameEventManager:Send_ServerToAllClients( "kill_event", broadcast_kill_event )
@@ -317,9 +312,7 @@ function CSniperWarsGameMode:OnEntityKilled( event )
 			if killedUnit:GetTeam() == self.leadingTeam and self.isGameTied == false then
 				local nKillerID = hero:GetPlayerID()
 				local KillerName = PlayerResource:GetPlayerName(nKillerID)
-				local KillerMessage = "<font color='" .. PLAYER_COLORS[nKillerID] .. "'>" .. KillerName .. "</font>"
-				local KillMessageLeader = " Has Killed The Leader!"
-				Notifications:TopToAll(KillerMessage .. KillMessageLeader, 3.0)
+				Notifications:TopToAll({text="<font color='" .. PLAYER_COLORS[nKillerID] .. "'>" .. KillerName .. "</font> Has Killed The Leader!", duration=3.0})
 			end
 		end
 	end
@@ -328,40 +321,18 @@ end
 function CSniperWarsGameMode:OnGameRulesStateChange()
 	local nNewState = GameRules:State_Get()
 	--print( "OnGameRulesStateChange: " .. nNewState )
-
-	if nNewState == DOTA_GAMERULES_STATE_HERO_SELECTION then
-
-	end
-
 	if nNewState == DOTA_GAMERULES_STATE_PRE_GAME then
 		local numberOfPlayers = PlayerResource:GetPlayerCount()
-		if numberOfPlayers > 7 then
-			--self.TEAM_KILLS_TO_WIN = 25
-			nCOUNTDOWNTIMER = 1200
-		elseif numberOfPlayers > 4 and numberOfPlayers <= 7 then
-			--self.TEAM_KILLS_TO_WIN = 20
-			nCOUNTDOWNTIMER = 721
-		else
-			--self.TEAM_KILLS_TO_WIN = 15
-			nCOUNTDOWNTIMER = 601
-		end
 		if GetMapName() == "forest_solo" then
 			self.TEAM_KILLS_TO_WIN = 20
-		elseif GetMapName() == "desert_duo" then
-			self.TEAM_KILLS_TO_WIN = 25
-		else
-			self.TEAM_KILLS_TO_WIN = 30
 		end
-		--print( "Kills to win = " .. tostring(self.TEAM_KILLS_TO_WIN) )
-
 		CustomNetTables:SetTableValue( "game_state", "victory_condition", { kills_to_win = self.TEAM_KILLS_TO_WIN } );
-
 		self._fPreGameStartTime = GameRules:GetGameTime()
 	end
 
 	if nNewState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--print( "OnGameRulesStateChange: Game In Progress" )
-		self.countdownEnabled = false
+		print( "OnGameRulesStateChange: Game In Progress" )
+		self.countdownEnabled = true
 		CustomGameEventManager:Send_ServerToAllClients( "show_timer", {} )
 		DoEntFire( "center_experience_ring_particles", "Start", "0", 0, self, self  )
 	end
@@ -467,7 +438,6 @@ function CSniperWarsGameMode:OnThink()
 	end
 	
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--Spawn Gold Bags
 		CSniperWarsGameMode:ThinkSpecialItemDrop()
 	end
 
