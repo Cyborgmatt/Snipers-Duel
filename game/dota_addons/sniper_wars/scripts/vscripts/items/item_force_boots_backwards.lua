@@ -1,5 +1,8 @@
-if item_sniper_boots_force_backwards == nil then
-    item_sniper_boots_force_backwards = class ({})
+item_sniper_boots_force_backwards = class ({})
+LinkLuaModifier( "modifier_item_sniper_boots_force_backwards", "modifiers/modifier_item_sniper_boots_force_backwards", LUA_MODIFIER_MOTION_NONE )
+
+function item_sniper_boots_force_backwards:GetIntrinsicModifierName()
+	return "modifier_item_sniper_boots_force_backwards"
 end
 
 function item_sniper_boots_force_backwards:OnSpellStart()

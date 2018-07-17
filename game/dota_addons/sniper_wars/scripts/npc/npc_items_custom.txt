@@ -249,7 +249,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"80"
+				"bonus_move_speed"		"80"
 			}			
 			"02"
 			{
@@ -314,13 +314,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"80"
-			}			
+				"bonus_move_speed"		"80"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"push_length"			"-800"
-			}
+			}			
 		}
 	}
 	
