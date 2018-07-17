@@ -26,6 +26,18 @@
 					<Image hittest="false" id="PickupMessage_Hero" />
 					<Image hittest="false" id="PickupMessage_Chest" />
 					<Image hittest="false" id="PickupMessage_Item" />
+					<Image src="file://{resources}/images/items/ambient_sorcery.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/bear_cloak.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/bogduggs_baldric.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/bogduggs_lucky_femur.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/craggy_coat.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/Creed_of_Omniscience.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/gravel_foot.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/guardian_shell.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/longclaws_amulet.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/pelt_of_the_old_wolf.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/precious_egg.png" id="PickupMessage_Item"/>
+					<Image src="file://{resources}/images/items/slippers_of_the_abyss.png" id="PickupMessage_Item"/>
 				</Panel>
 				<Label hittest="false" id="PickupMessage_Hero_Text" class="NotificationMessage" text="#OverthrowHeroPickup" />
 				<Label hittest="false" id="PickupMessage_Text" class="NotificationMessage" text="#OverthrowTextPickup" />
