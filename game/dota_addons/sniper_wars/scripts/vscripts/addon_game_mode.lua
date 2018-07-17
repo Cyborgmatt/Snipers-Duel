@@ -157,7 +157,7 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:SetHeroSelectionTime( 20.0 )
 	GameRules:SetTreeRegrowTime( 10.0 )
 	-- Gamemode Rules
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 ) 
+	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath( false )
@@ -421,8 +421,8 @@ function CSniperWarsGameMode:OnThink()
 		if nCOUNTDOWNTIMER <= 0 then
 			--Check to see if there's a tie
 			if self.isGameTied == false then
+				GameRules:SetGameWinner( self.leadingTeam )
 				GameRules:SetCustomVictoryMessage( self.m_VictoryMessages[self.leadingTeam] )
-				CSniperWarsGameMode:EndGame( self.leadingTeam )
 				self.countdownEnabled = false
 			else
 				self.TEAM_KILLS_TO_WIN = self.leadingTeamScore + 1
