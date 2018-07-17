@@ -4,9 +4,9 @@
 	{
 		"item"		"item_tango"
 		"item"		"item_flask"
+		"item"		"item_greater_salve"
 		"item"		"item_ward_observer"
 		"item"		"item_ward_sentry"
-		"item"		"item_quelling_blade"
 	}
 
 	"attributes"
@@ -27,6 +27,7 @@
 		"item"		"item_sniper_grenade"
 		"item"		"item_sniper_grappling"
 		"item"		"item_sniper_barricade"
+		"item"		"item_quelling_blade"
 	}	
 	
 	// Level 1 - Green Recipes
