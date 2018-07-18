@@ -8,6 +8,7 @@ end
 require( "libraries/utility_functions" )
 require( "libraries/notifications" )
 require( "libraries/projectiles" )
+require( "statcollection/init" )
 require( "libraries/physics" )
 require( "libraries/timers" )
 require( "itemspawning" )
