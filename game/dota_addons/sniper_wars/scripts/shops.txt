@@ -36,9 +36,9 @@
 		"item"		"item_bogduggs_baldric"
 		"item"		"item_craggy_coat"
 		"item"		"item_ambient_sorcery"
-		"item"		"item_guardian_shell"
 		"item"		"item_gravel_foot"
 		"item"		"item_precious_egg"
+		"item"		"item_slippers_of_the_abyss"
 	}	
 	
 	// Level 1 - Green Recipes

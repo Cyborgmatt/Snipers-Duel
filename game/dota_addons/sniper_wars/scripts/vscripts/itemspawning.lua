@@ -31,8 +31,7 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bogduggs_lucky_femur",
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
-		"item_ambient_sorcery",
-		"item_guardian_shell"
+		"item_ambient_sorcery"
 	}
 	local tier2 = 
 	{
@@ -47,7 +46,7 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
 		"item_ambient_sorcery",
-		"item_guardian_shell"
+		"item_slippers_of_the_abyss"
 	}
 	local tier3 = 
 	{
@@ -62,9 +61,9 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
 		"item_ambient_sorcery",
-		"item_guardian_shell",
 		"item_gravel_foot",
-		"item_precious_egg"
+		"item_precious_egg",
+		"item_slippers_of_the_abyss"
 	}
 
 	local t1 = PickRandomShuffle( tier1, self.tier1ItemBucket )

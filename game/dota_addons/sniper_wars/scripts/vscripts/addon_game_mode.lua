@@ -29,6 +29,7 @@ function Precache( context )
     PrecacheResource( "particle", "particles/newplayer_fx/npx_wood_break.vpcf", context )
     PrecacheResource( "particle", "particles/sniper_grenade_explosion.vpcf", context )
     PrecacheResource( "particle", "particles/items2_fx/tranquil_boots_healing.vpcf", context)
+	PrecacheResource( "particle", "particles/ti8_hero_effect_purple.vpcf", context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts", context )	
 end
