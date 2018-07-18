@@ -1322,85 +1322,10 @@
 			}
 		}
 	}
-	
+
+
 	//=================================================================================================================
-	// Slippers of the Abyss - Required Level: 21
-	//=================================================================================================================
-	"item_slippers_of_the_abyss"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
-		"AbilityTextureName"			"slippers_of_the_abyss"
-		"ScriptFile"					"items/item_slippers_of_the_abyss"
-
-		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"100"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10000"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"ItemStackable"					"0"
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemKillable"					"0"
-		"ItemDisplayOwnership"			"1"
-		"CustomShop"					"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"required_level"		"21"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"90"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"15"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"15"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_atk_speed"		"100"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sprint_duration"		"4"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sprint_bonus_ms"		"200"
-			}
-		}
-	}
-	
-	//=================================================================================================================
-	// Precious Egg - Required Level: 23
+	// Precious Egg - Required Level: 21
 	//=================================================================================================================
 	"item_precious_egg"
 	{
@@ -1439,7 +1364,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"required_level"		"23"
+				"required_level"		"21"
 			}
 			"02"
 			{

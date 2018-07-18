@@ -38,7 +38,6 @@
 		"item"		"item_ambient_sorcery"
 		"item"		"item_guardian_shell"
 		"item"		"item_gravel_foot"
-		"item"		"item_slippers_of_the_abyss"
 		"item"		"item_precious_egg"
 	}	
 	

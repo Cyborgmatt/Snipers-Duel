@@ -64,7 +64,6 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_ambient_sorcery",
 		"item_guardian_shell",
 		"item_gravel_foot",
-		"item_slippers_of_the_abyss",
 		"item_precious_egg"
 	}
 

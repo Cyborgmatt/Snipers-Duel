@@ -158,7 +158,7 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:SetHeroSelectionTime( 20.0 )
 	GameRules:SetTreeRegrowTime( 10.0 )
 	-- Gamemode Rules
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 ) 
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath( false )
