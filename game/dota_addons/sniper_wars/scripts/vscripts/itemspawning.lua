@@ -28,39 +28,22 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 		"item_bear_cloak",
 		"item_pelt_of_the_old_wolf",
 		"item_longclaws_amulet",
-		"item_bogduggs_lucky_femur",
-		"item_bogduggs_baldric",
-		"item_craggy_coat",
-		"item_ambient_sorcery"
+		"item_bogduggs_lucky_femur"
 	}
 	local tier2 = 
 	{
 		"item_sniper_grenade",
 		"item_sniper_potato",
 		"item_sniper_barricade",
-		"item_creed_of_omniscience",
-		"item_bear_cloak",
-		"item_pelt_of_the_old_wolf",
-		"item_longclaws_amulet",
-		"item_bogduggs_lucky_femur",
 		"item_bogduggs_baldric",
 		"item_craggy_coat",
-		"item_ambient_sorcery",
-		"item_slippers_of_the_abyss"
+		"item_ambient_sorcery"
 	}
 	local tier3 = 
 	{
 		"item_sniper_grenade",
 		"item_sniper_potato",
 		"item_sniper_barricade",
-		"item_creed_of_omniscience",
-		"item_bear_cloak",
-		"item_pelt_of_the_old_wolf",
-		"item_longclaws_amulet",
-		"item_bogduggs_lucky_femur",
-		"item_bogduggs_baldric",
-		"item_craggy_coat",
-		"item_ambient_sorcery",
 		"item_gravel_foot",
 		"item_precious_egg",
 		"item_slippers_of_the_abyss"
@@ -75,9 +58,9 @@ function CSniperWarsGameMode:SpecialItemAdd( event )
 	-- pick the item we're giving them
 	if GetTeamHeroKills( leader ) <= 5 then
 		spawnedItem = t1
-	elseif GetTeamHeroKills( leader ) <= 10 then
-		spawnedItem = t2
 	elseif GetTeamHeroKills( leader ) <= 15 then
+		spawnedItem = t2
+	elseif GetTeamHeroKills( leader ) <= 20 then
 		spawnedItem = t3
 	end
 
