@@ -44,9 +44,6 @@
 				<Label hittest="false" id="PickupMessage_Item_Text" class="NotificationMessage" text="#OverthrowItemPickup" />
 			</Panel>
 			<Panel hittest="false" id="KillMessage" text="">
-				<Label hittest="false" id="KillMessage_Hero" class="NotificationMessage" text="#KillMessageHero" />
-				<Label hittest="false" id="KillMessage_Text" class="NotificationMessage" text="#KillMessageText" />
-				<Label hittest="false" id="KillMessage_Bounty" class="NotificationMessage" text="#KillMessageBounty" />
 			</Panel>
 		</Panel>
 	</Panel>
