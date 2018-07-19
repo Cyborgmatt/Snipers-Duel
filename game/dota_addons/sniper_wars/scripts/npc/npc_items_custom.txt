@@ -228,7 +228,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1105"															
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"BaseClass"             		"item_lua"
 		"ScriptFile"					"items/item_force_boots.lua"
 		"AbilityTextureName"			"item_sniper_boots_force"
@@ -293,7 +293,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1107"															
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"BaseClass"             		"item_lua"
 		"AbilityTextureName"			"item_sniper_boots_force_backwards"
 		"ScriptFile"					"items/item_force_boots_backwards.lua"
