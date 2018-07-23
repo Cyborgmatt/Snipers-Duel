@@ -248,7 +248,7 @@ function CSniperWarsGameMode:OnNPCSpawned(event)
 	if spawnedUnit:IsRealHero() and spawnedUnit.bFirstSpawned == nil then
 		spawnedUnit.bFirstSpawned = true
 		spawnedUnit:SetGold(0,false)
-		spawnedUnit:SetGold(450,true)
+		spawnedUnit:SetGold(500,true)
 		ability1:SetLevel(1)
 		ability2:SetLevel(1)
 	end

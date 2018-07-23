@@ -14,8 +14,8 @@
 		"Ability2"					"sniper_machinegun_wars"		// Ability 2
 		"Ability3"					"sniper_shotgun_wars"			// Ability 3
 		"Ability4"					"sniper_jump_wars"				// Ability 4
-		"Ability5"					"sniper_shield_wars"			// Ability 5
-		"Ability6"					"attribute_bonus"				// Ability 6
+		"Ability5"					"attribute_bonus"				// Ability 5
+		"Ability6"					"sniper_shield_wars"			// Ability 6
 		"VisionNighttimeRange"		"1800"							// Range of vision at night time.
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 	}
