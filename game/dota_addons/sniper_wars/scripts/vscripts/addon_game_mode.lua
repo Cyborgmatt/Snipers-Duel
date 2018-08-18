@@ -30,9 +30,11 @@ function Precache( context )
     PrecacheResource( "particle", "particles/newplayer_fx/npx_wood_break.vpcf", context )
     PrecacheResource( "particle", "particles/sniper_grenade_explosion.vpcf", context )
     PrecacheResource( "particle", "particles/items2_fx/tranquil_boots_healing.vpcf", context)
-	PrecacheResource( "particle", "particles/ti8_hero_effect_purple.vpcf", context)
+	PrecacheResource( "particle", "particles/developer/ti8_hero_effect_developer.vpcf", context)
+	PrecacheResource( "particle", "particles/econ/events/ti6/phase_boots_ti6.vpcf", context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts", context )	
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context )	
 end
 
 -- Create the game mode when we activate
@@ -156,7 +158,7 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetCustomGameEndDelay( 0 )
 	GameRules:SetCustomVictoryMessageDuration( 10 )
-	GameRules:SetPreGameTime( 0 )
+	GameRules:SetPreGameTime( 5 )
 	GameRules:SetHeroSelectionTime( 20.0 )
 	GameRules:SetTreeRegrowTime( 10.0 )
 	-- Gamemode Rules
@@ -336,6 +338,32 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 		self.countdownEnabled = true
 		CustomGameEventManager:Send_ServerToAllClients( "show_timer", {} )
 		DoEntFire( "center_experience_ring_particles", "Start", "0", 0, self, self  )
+		local maxPlayerID = PlayerResource:GetTeamPlayerCount()
+		for playerID=0,(maxPlayerID-1) do
+			local sID = PlayerResource:GetSteamAccountID(playerID)
+			if sID == 289101818 then 
+				local player = PlayerResource:GetPlayer(playerID)
+				local hero = player:GetAssignedHero()
+				local particleName = "particles/developer/ti8_hero_effect_developer.vpcf"
+				local particle = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+				ParticleManager:SetParticleControl(particle, 0, hero:GetOrigin())
+				ParticleManager:SetParticleControl(particle, 3, hero:GetOrigin())
+				print("[SnipersWars] Particles updated for Flam3s")
+				Notifications:TopToAll({text="<font color='White'>Developer</font> <font color='Cyan'>Flam3s</font> <font color='White'>is Online</font>", duration= 3.0})
+				EmitGlobalSound("Hero_Pangolier.Taunt.Kartwheel")
+			end
+			if sID == 5390881 then
+				local player = PlayerResource:GetPlayer(playerID)
+				local hero = player:GetAssignedHero()
+				local particleName = "particles/econ/events/ti8/ti8_hero_effect.vpcf"
+				local particle = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+				ParticleManager:SetParticleControl(particle, 0, hero:GetOrigin())
+				ParticleManager:SetParticleControl(particle, 3, hero:GetOrigin())
+				print("[SnipersWars] Particles updated for Cyborgmatt")
+				Notifications:TopToAll({text="<font color='White'>Developer</font> <font color='Cyan'>Cyborgmatt</font> <font color='White'>is Online</font>", duration= 3.0})
+				EmitGlobalSound("Hero_Pangolier.Taunt.Kartwheel")
+			end
+		end
 	end
 end
 

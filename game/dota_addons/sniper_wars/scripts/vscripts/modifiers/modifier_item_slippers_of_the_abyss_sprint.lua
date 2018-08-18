@@ -10,7 +10,7 @@ end
 ------------------------------------------------------------------------------
 
 function modifier_item_slippers_of_the_abyss_sprint:GetEffectName()
-	return "particles/ti8_hero_effect_purple.vpcf"
+	return "particles/econ/events/ti6/phase_boots_ti6.vpcf"
 end
 
 ------------------------------------------------------------------------------
