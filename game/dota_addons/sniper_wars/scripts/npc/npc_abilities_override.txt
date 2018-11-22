@@ -18,6 +18,35 @@
    	{
 		"ItemPurchasable" "0"
 	}
+	
+	 "item_kaya_and_sange"
+   	{
+		"ItemPurchasable" "0"
+	}
+	 "item_recipe_kaya_and_sange"
+   	{
+		"ItemPurchasable" "0"
+	}
+	 "item_yasha_and_kaya"
+   	{
+		"ItemPurchasable" "0"
+	}
+	 "item_ring_of_tarrasque"
+   	{
+		"ItemPurchasable" "0"
+	}
+	"item_recipe_holy_locket"
+   	{
+		"ItemPurchasable" "0"
+	}
+	"item_holy_locket"
+   	{
+		"ItemPurchasable" "0"
+	}
+	"item_crown"
+   	{
+		"ItemPurchasable" "0"
+	}
   "item_blink"
 	{
 		"ItemPurchasable" "0"
