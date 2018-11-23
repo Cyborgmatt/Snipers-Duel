@@ -29,7 +29,7 @@
 
 .InstructionsTitle
 {
-    color: white;
+    color: red;
     font-size: 18px;
     font-weight: bold;
     horizontal-align: center;
@@ -183,7 +183,7 @@
 
 #AlertMessage_Chest
 {
-    color: white;
+    color: orange;
     horizontal-align: center;
     text-shadow: 4px 4px 4px #121212;
     font-size: 48px;
@@ -324,8 +324,12 @@
 #AlertTimer_Text
 {
     text-shadow: 4px 4px 4px #121212;
-    color: red;
-    horizontal-align: center;
+    color: orange;
+	background-image: url("s2r://panorama/images/hud/reborn/inventory_bg_psd.vtex");
+    text-align: center;
+	width:80px;
+	height:60px;
+	background-repeat: no-repeat;
     font-size: 48px;
 }
 
@@ -349,7 +353,7 @@
     horizontal-align: center;
     margin: 0px;
     margin-top: 64px;
-    
+    margin-right: 40px;
     font-size: 96px;
     font-weight: bold;
     opacity: 0;
@@ -363,23 +367,32 @@
 #Overtime_Text
 {
     text-shadow: 4px 4px 4px #121212;
-    color: red;
+    color: #EA351E;
+	background-image: url("s2r://panorama/images/hud/reborn/inventory_bg_psd.vtex");
+    text-align: center;
+	width:250px;
+	height:60px;
+	background-repeat: no-repeat;
     horizontal-align: center;
+	text-align: center;
     font-size: 48px;
 }
 
 #Overtime_Goal
 {
-    text-shadow: 4px 4px 4px #121212;
-    horizontal-align: center;
-    font-size: 24px;
+	visibility: collapse;
 }
 
 #Overtime_Instructions
 {
-    text-shadow: 4px 4px 4px #121212;
+	margin-top: 5px;
+	background-image: url("s2r://panorama/images/hud/reborn/inventory_bg_psd.vtex");
+    color: orange;
     horizontal-align: center;
+	text-align: center;
     font-size: 24px;
+	width:250px;
+	height:26px;
 }
 
 .overtime_visible #Overtime

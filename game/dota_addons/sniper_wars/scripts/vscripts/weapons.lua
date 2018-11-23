@@ -161,7 +161,6 @@ function Shotgun_Shoot( args )
 end
 
 -- ITEMS
-
 function Grappling_Hook( keys )
     local casterUnit = keys.caster
     local targetPoint = keys.target_points[1]

@@ -34,7 +34,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/econ/events/ti6/phase_boots_ti6.vpcf", context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts", context )	
-	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context )	
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context )
 end
 
 -- Create the game mode when we activate
@@ -166,13 +166,14 @@ function CSniperWarsGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath( false )
+	GameRules:GetGameModeEntity():SetAnnouncerDisabled( true )
+	GameRules:GetGameModeEntity():SetRecommendedItemsDisabled( true )
+	GameRules:GetGameModeEntity():SetBuybackEnabled( false )
+	GameRules:GetGameModeEntity():SetStashPurchasingDisabled( false )
 	GameRules:GetGameModeEntity():SetFountainPercentageHealthRegen( 100 )
 	GameRules:GetGameModeEntity():SetFountainPercentageManaRegen( 100 )
 	GameRules:GetGameModeEntity():SetFountainConstantManaRegen( 30 )
-	GameRules:GetGameModeEntity():SetRecommendedItemsDisabled( true )
-	GameRules:GetGameModeEntity():SetBuybackEnabled( false )
 	GameRules:GetGameModeEntity():SetFixedRespawnTime( 5.0 )
-	GameRules:GetGameModeEntity():SetStashPurchasingDisabled( false )
 	GameRules:GetGameModeEntity():SetCameraDistanceOverride( 1250.0 )
 	GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_sniper")
 
@@ -326,7 +327,7 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 	--print( "OnGameRulesStateChange: " .. nNewState )
 	if nNewState == DOTA_GAMERULES_STATE_PRE_GAME then
 		local numberOfPlayers = PlayerResource:GetPlayerCount()
-		if GetMapName() == "forest_solo" then
+		if GetMapName() == "forest_solo" or "winter_solo" or "desert_solo" then
 			self.TEAM_KILLS_TO_WIN = 20
 		end
 		CustomNetTables:SetTableValue( "game_state", "victory_condition", { kills_to_win = self.TEAM_KILLS_TO_WIN } );
@@ -448,6 +449,47 @@ function CSniperWarsGameMode:OnThink()
 		CountdownTimer()
 		if nCOUNTDOWNTIMER == 30 then
 			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_timer_sec_30")
+		end
+		if nCOUNTDOWNTIMER == 10 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_10")
+		end
+		if nCOUNTDOWNTIMER == 9 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_09")
+		end
+		if nCOUNTDOWNTIMER == 8 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_08")
+		end
+		if nCOUNTDOWNTIMER == 7 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_07")
+		end
+		if nCOUNTDOWNTIMER == 6 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_06")
+		end
+		if nCOUNTDOWNTIMER == 5 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_05")
+		end
+		if nCOUNTDOWNTIMER == 4 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_04")
+		end
+		if nCOUNTDOWNTIMER == 3 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_03")
+		end
+		if nCOUNTDOWNTIMER == 2 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_02")
+		end
+		if nCOUNTDOWNTIMER == 1 then
+			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
+			EmitGlobalSound("ann_custom_countdown_01")
 		end
 		if nCOUNTDOWNTIMER <= 0 then
 			--Check to see if there's a tie
