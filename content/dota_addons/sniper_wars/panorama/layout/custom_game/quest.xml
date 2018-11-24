@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quest.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quest.js" />
+	</scripts>
+	
+	<snippets>
+		<snippet name="Quest">
+			<Panel class="Quest">
+				<Panel id="LeftSide">
+					<Panel id="QuestImage">
+						<Image src="file://{resources}/images/custom_game/quest/quest_icon.png" />
+					</Panel>
+				</Panel>
+				<Panel id="RightSide">
+					<Panel id="TopSide">
+						<Label id="QuestTitle" text="Quest Title" />
+					</Panel>
+					<Panel id="BottomSide">
+						<Panel id="Background" />
+						<Label id="QuestDescription" text="Test Description" />
+						<Label id="QuestProgress" text="0/1" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	
+	<Panel class="QuestRoot">
+			<Panel id="Quests">
+			
+			</Panel>
+	</Panel>
+</root>

@@ -43,7 +43,7 @@ function Activate()
 	CSniperWarsGameMode:InitGameMode()
 end
 
-function CSniperWarsGameMode:InitGameMode()
+function CSniperWarsGameMode:InitGameMode()			
 	print( "[SniperWars] is loaded." )
 	-- Handle Custom Teams
 	self.m_TeamColors = {}
@@ -203,7 +203,6 @@ function CSniperWarsGameMode:OnItemPickUp( event )
 	end
 end
 
-
 --------------------------------------------------------------------------------
 -- Event: OnNpcGoalReached
 --------------------------------------------------------------------------------
@@ -300,7 +299,6 @@ function CSniperWarsGameMode:OnTeamKillCredit( event )
 
 	CustomGameEventManager:Send_ServerToAllClients( "kill_event", broadcast_kill_event )
 end
-
 ---------------------------------------------------------------------------
 -- Event: OnEntityKilled
 ---------------------------------------------------------------------------
