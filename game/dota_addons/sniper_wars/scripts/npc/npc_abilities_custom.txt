@@ -120,6 +120,86 @@
 	}
 
 	//=================================================================================================================
+	// Sniper: Assassinate - Developer
+	//=================================================================================================================
+	"sniper_assassinate_wars_developer"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"sniper_assassinate"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"1700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"1.0"
+
+		"AbilityManaCost"				"0"
+		"AbilityDamage"					"10000"
+
+		"precache"
+		{
+			"particle" 	"particles/sniper_bullet_developer.vpcf"
+			"particle" 	"particles/items2_fx/hand_of_midas.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1000 1200 1400 1600"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/developer_weapons.lua"
+				"Function"				"Rifle_Shoot"
+				"Target"				"POINT"
+				"MoveSpeed"				"%speed"
+				"FixedDistance"			"%range"
+				"StartRadius"			"%start_radius"
+				"EndRadius"				"%end_radius"
+				"Damage" 				"%AbilityDamage"
+				"VisionRadius"			"%vision_radius"
+			}
+
+			"FireSound"
+			{
+				"EffectName" 	"Hero_Sniper.Rifle_Attack"
+				"Target" 		"CASTER"
+			}
+		}
+	}
+
+	//=================================================================================================================
 	// Sniper: Machine Gun
 	//=================================================================================================================
 	"sniper_machinegun_wars"
@@ -230,6 +310,116 @@
 	}
 	
 	//=================================================================================================================
+	// Sniper: Machine Gun - Developer
+	//=================================================================================================================
+	"sniper_machinegun_wars_developer"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"1300 1500 1600 1700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"10.0 8.0 6.0 4.0"
+
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle" 	"particles/sniper_bullet_mg_developer.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1300 1500 1600 1700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"750 950 1150 1350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 400 500 600"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_sniper_machinegun"
+				"Target"			"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_sniper_machinegun"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"duration"			"%duration"
+
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/developer_weapons.lua"
+						"Function"				"Machinegun_Shoot"
+						"Target"				"POINT"
+						"MoveSpeed"				"%speed"
+						"FixedDistance"			"%range"
+						"StartRadius"			"%start_radius"
+						"EndRadius"				"%end_radius"
+						"Damage" 				"%damage"
+						"VisionRadius"			"%vision_radius"
+					}
+
+					"FireSound"
+					{
+						"EffectName" 	"Hero_Sniper.Machinegun_Attack"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+		}
+	}
+	
+	//=================================================================================================================
 	// Sniper: Shotgun
 	//=================================================================================================================
 	"sniper_shotgun_wars"
@@ -296,6 +486,104 @@
 			"RunScript"
 			{
 				"ScriptFile"			"scripts/vscripts/weapons.lua"
+				"Function"				"Shotgun_Shoot"
+				"Target"				"POINT"
+				"MoveSpeed"				"%speed"
+				"FixedDistance"			"%range"
+				"StartRadius"			"%start_radius"
+				"EndRadius"				"%end_radius"
+				"Damage" 				"%damage"
+				"VisionRadius"			"%vision_radius"
+			}
+
+			"FireSound"
+			{
+				"EffectName" 	"Hero_Sniper.Shotgun_Attack"
+				"Target" 		"CASTER"
+			}
+
+			"DelayedAction"
+			{
+				"Delay"     "0.6"
+				"Action"    
+				{
+					"FireSound"
+					{
+						"EffectName" 	"Hero_Sniper.Shotgun_Reload"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Sniper: Shotgun - Developer
+	//=================================================================================================================
+	"sniper_shotgun_wars_developer"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"sniper_shotgun_wars"
+		"MaxLevel" 						"4"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"20.0 15.0 12.5 10.0"
+
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/sniper_wars_sounds.vsndevts"
+			"particle" 	"particles/sniper_bullet_mg_developer.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"750 950 1150 1350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 400 500 600"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/developer_weapons.lua"
 				"Function"				"Shotgun_Shoot"
 				"Target"				"POINT"
 				"MoveSpeed"				"%speed"
@@ -530,6 +818,89 @@
 				"IsPurgable"	"1"
 				"Duration"		"%duration"
 				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Sniper: Divine Shield - Developer
+	//=================================================================================================================
+	"sniper_shield_wars_developer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"omniknight_repel"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 15 10"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0"
+			}
+		}
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+			"particle"	"particles/omniknight_repel_buff_developer.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Omniknight.Repel"
+				"Target"			"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_cast.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"modifier_repel_datadriven"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_repel_datadriven"
+			{
+				"IsBuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"%duration"
+				"EffectName"		"particles/omniknight_repel_buff_developer.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"States"
 				{
