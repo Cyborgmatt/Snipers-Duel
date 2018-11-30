@@ -2,11 +2,9 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/quest.css" />
 	</styles>
-	
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/quest.js" />
 	</scripts>
-	
 	<snippets>
 		<snippet name="Quest">
 			<Panel class="Quest">
@@ -28,10 +26,8 @@
 			</Panel>
 		</snippet>
 	</snippets>
-	
 	<Panel class="QuestRoot">
 			<Panel id="Quests">
-			
 			</Panel>
 	</Panel>
 </root>

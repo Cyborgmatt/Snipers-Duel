@@ -37,7 +37,6 @@ function RemoveQuest(quest)
 	quest.DeleteAsync(0);
 }
 
-/* Event Listeners */
 function OnNewQuest(dat)
 {
 	var quest = InitQuest(dat.name,dat.desc,dat.max);

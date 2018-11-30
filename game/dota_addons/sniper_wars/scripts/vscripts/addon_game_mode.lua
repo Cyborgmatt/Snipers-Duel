@@ -30,7 +30,8 @@ function Precache( context )
     PrecacheResource( "particle", "particles/newplayer_fx/npx_wood_break.vpcf", context )
     PrecacheResource( "particle", "particles/sniper_grenade_explosion.vpcf", context )
     PrecacheResource( "particle", "particles/items2_fx/tranquil_boots_healing.vpcf", context)
-	PrecacheResource( "particle", "particles/developer/ti8_hero_effect_developer.vpcf", context)
+	PrecacheResource( "particle", "particles/econ/events/ti7/ti7_hero_effect.vpcf", context)
+	PrecacheResource( "particle", "particles/developer_effects/ti7_hero_effect_pink.vpcf", context)
 	PrecacheResource( "particle", "particles/econ/events/ti6/phase_boots_ti6.vpcf", context)
 	PrecacheResource( "particle", "particles/newplayer_fx/npx_wood_break.vpcf", context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts", context )
@@ -360,7 +361,7 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 				abilitydeveloper:SetLevel(1)
 				
 				print("[SnipersWars] Adding Particle Effects for Flam3s")
-				local particleName = "particles/developer/ti8_hero_effect_developer.vpcf"
+				local particleName = "particles/developer_effects/ti7_hero_effect_pink.vpcf"
 				local particle = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
 				ParticleManager:SetParticleControl(particle, 0, hero:GetOrigin())
 				ParticleManager:SetParticleControl(particle, 3, hero:GetOrigin())
@@ -380,7 +381,6 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 				print("[SnipersWars] Sending out a Notification")
 				Notifications:TopToAll({text="<font color='White'>Developer</font> <font color='Cyan'>Flam3s</font> <font color='White'>is Online</font>", duration= 3.0})
 				EmitGlobalSound("Hero_Pangolier.Taunt.Kartwheel")
-				
 			end
 			if sID == 5390881 then
 				local player = PlayerResource:GetPlayer(playerID)
@@ -401,7 +401,7 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 				abilitydeveloper:SetLevel(1)
 				
 				print("[SnipersWars] Adding Particle Effects for Cyborgmatt")
-				local particleName = "particles/econ/events/ti8/ti8_hero_effect.vpcf"
+				local particleName = "particles/developer_effects/ti7_hero_effect_pink.vpcf"
 				local particle = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
 				ParticleManager:SetParticleControl(particle, 0, hero:GetOrigin())
 				ParticleManager:SetParticleControl(particle, 3, hero:GetOrigin())
