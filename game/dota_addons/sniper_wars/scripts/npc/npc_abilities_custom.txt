@@ -54,7 +54,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
-		"AbilityCastRange"				"1700"
+		"AbilityCastRange"				"2200"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"1.0"
 
@@ -82,7 +82,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"1700"
+				"range"					"2200"
 			}
 			"04"
 			{
@@ -125,7 +125,7 @@
 	"sniper_assassinate_wars_developer"
 	{
 		"BaseClass"             		"ability_datadriven"
-		"AbilityTextureName"			"sniper_assassinate"
+		"AbilityTextureName"			"sniper_assassinate_developer"
 		"MaxLevel" 						"4"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -134,7 +134,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
-		"AbilityCastRange"				"1700"
+		"AbilityCastRange"				"2200"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"1.0"
 
@@ -162,7 +162,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"1700"
+				"range"					"2200"
 			}
 			"04"
 			{
@@ -214,7 +214,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
-		"AbilityCastRange"				"1300 1500 1600 1700"
+		"AbilityCastRange"				"1900 2100 2300 2500"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"10.0 8.0 6.0 4.0"
 
@@ -240,7 +240,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"1300 1500 1600 1700"
+				"range"					"1900 2100 2300 2500"
 			}
 			"04"
 			{
@@ -315,7 +315,7 @@
 	"sniper_machinegun_wars_developer"
 	{
 		"BaseClass"             		"ability_datadriven"
-		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
+		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun_developer"
 		"MaxLevel" 						"4"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
@@ -324,7 +324,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
-		"AbilityCastRange"				"1300 1500 1600 1700"
+		"AbilityCastRange"				"1900 2100 2300 2500"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"10.0 8.0 6.0 4.0"
 
@@ -350,7 +350,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"1300 1500 1600 1700"
+				"range"					"1900 2100 2300 2500"
 			}
 			"04"
 			{
@@ -523,7 +523,7 @@
 	"sniper_shotgun_wars_developer"
 	{
 		"BaseClass"             		"ability_datadriven"
-		"AbilityTextureName"			"sniper_shotgun_wars"
+		"AbilityTextureName"			"sniper_shotgun_wars_developer"
 		"MaxLevel" 						"4"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"

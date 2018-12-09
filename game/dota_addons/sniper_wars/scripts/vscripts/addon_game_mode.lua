@@ -327,7 +327,7 @@ function CSniperWarsGameMode:OnGameRulesStateChange()
 	--print( "OnGameRulesStateChange: " .. nNewState )
 	if nNewState == DOTA_GAMERULES_STATE_PRE_GAME then
 		local numberOfPlayers = PlayerResource:GetPlayerCount()
-		if GetMapName() == "forest_solo" or "winter_solo" or "desert_solo" then
+		if GetMapName() == "winter_solo" then
 			self.TEAM_KILLS_TO_WIN = 20
 		end
 		CustomNetTables:SetTableValue( "game_state", "victory_condition", { kills_to_win = self.TEAM_KILLS_TO_WIN } );
@@ -627,7 +627,7 @@ function CSniperWarsGameMode:GatherAndRegisterValidTeams()
 		table.insert( foundTeamsList, DOTA_TEAM_BADGUYS )
 		numTeams = 2
 	end
-
+	
 	local maxPlayersPerValidTeam = math.floor( 10 / numTeams )
 
 	self.m_GatheredShuffledTeams = ShuffledList( foundTeamsList )
@@ -645,5 +645,23 @@ function CSniperWarsGameMode:GatherAndRegisterValidTeams()
 		end
 		print( " - " .. team .. " ( " .. GetTeamName( team ) .. " ) -> max players = " .. tostring(maxPlayers) )
 		GameRules:SetCustomGameTeamMaxPlayers( team, maxPlayers )
+		
+	if GetMapName() == "classic" then
+		self.TEAM_KILLS_TO_WIN = 50
+		MAX_NUMBER_OF_TEAMS = 2   
+		CUSTOM_TEAM_PLAYER_COUNT = {}        
+		CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 10
+		CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 10
+		local count = 0
+		for team,number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
+			if count >= MAX_NUMBER_OF_TEAMS then
+				GameRules:SetCustomGameTeamMaxPlayers(team, 0)
+			else
+				GameRules:SetCustomGameTeamMaxPlayers(team, number)
+			end
+			count = count + 1
+		end
+	end
+		
 	end
 end

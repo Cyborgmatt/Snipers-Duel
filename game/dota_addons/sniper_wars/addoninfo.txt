@@ -1,19 +1,15 @@
 "AddonInfo"
 {
 	"TeamCount"			  "10"
-	"maps"				  "forest_solo winter_solo desert_solo"
+	"maps"				  "winter_solo classic"
 	"HeroGuidesSupported" "0"
 	"IsPlayable"		  "1"
-	"forest_solo"
-	{
-					"MaxPlayers"                    "10"
-	}
 	"winter_solo"
 	{
 					"MaxPlayers"                    "10"
 	}
-	"desert_solo"
+	"classic"
 	{
-					"MaxPlayers"                    "10"
+					"MaxPlayers"                    "20"
 	}
 }
